@@ -1391,40 +1391,39 @@ audio {
     	}
     }*/
 @media screen and (max-width: 768px) {
-    /* Дозволяємо скрол */
-    body, html {
-        overflow-y: auto !important;
+    /* 1. Робимо головний контейнер гнучким */
+    body, .container, #main-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         height: auto !important;
+        overflow-y: auto !important;
+        padding-top: 50px !important;
     }
 
-    /* ФОТО: стають у стрічку, ТІЛЬКИ коли JS їх покаже */
+    /* 2. Фотографії: забираємо координати, даємо автоматичні відступи */
     .photo, img[class*="photo"], .image-item {
-        position: relative !important; 
-        top: auto !important; 
-        left: auto !important;
-        display: inherit !important; /* Чекаємо команди від JS */
-        margin: 20px auto !important;
-        width: 85% !important;
-        max-width: 350px;
-        transform: rotate(0deg) !important;
-        z-index: 5; /* Фото нижче за важливі декорації */
+        position: static !important; /* Найважливіше: це повністю ігнорує top/left */
+        margin: 15px 0 !important;
+        width: 90% !important;
+        max-width: 350px !important;
+        transform: none !important;
+        /* Не додаємо display: block, щоб JS сам їх показав, коли треба */
     }
 
-    /* ДЕКОРАЦІЇ: повертаємо їх "у повітря" поверх фото */
-    .banner, .balloons, .cake, .decor, img[src*="png"] {
-        position: absolute !important; /* Вони не займають місця в черзі */
-        z-index: 10; /* Будуть поверх фотографій */
-        pointer-events: none; /* Щоб вони не заважали натискати на фото */
+    /* 3. Декорації: не даємо їм розсувати ленту */
+    .banner, .balloons, .cake, .decor {
+        position: fixed !important; /* Вони "зависнуть" у повітрі і не будуть штовхати фото */
+        z-index: 100;
+        pointer-events: none; /* Щоб можна було гортати сайт крізь них */
     }
 
-    /* Зменшуємо декорації, щоб вони не закрили все обличчя */
-    .cake { width: 100px !important; top: 10% !important; left: 10% !important; }
-    .balloons { width: 80px !important; }
-    .banner { width: 100% !important; top: 20px !important; left: 0 !important; }
-
-    /* ХОВАЄМО сині кнопки-підказки */
-    .button-class, .hint-text, .blue-btn, [class*="btn"] {
-        /* Якщо це не головна кнопка ввімкнення - ховаємо */
-        display: none !important; 
+    /* Зменшуємо їх, щоб не заважали */
+    .banner { top: 0; width: 100%; height: auto; }
+    .cake { bottom: 10px; right: 10px; width: 80px; }
+    
+    /* 4. Приховуємо сині кнопки-підказки, бо вони "ламають" ленту */
+    .blue-btn, [class*="btn"]:not(#lightButton), .hint-text {
+        display: none !important;
     }
 }
