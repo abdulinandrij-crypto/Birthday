@@ -1391,39 +1391,89 @@ audio {
     	}
     }*/
 @media screen and (max-width: 768px) {
-    /* 1. Робимо головний контейнер гнучким */
-    body, .container, #main-wrapper {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        height: auto !important;
+    /* 1. Дозволяємо сторінці рости вниз */
+    body, html {
         overflow-y: auto !important;
-        padding-top: 50px !important;
+        height: auto !important;
+        min-height: 100vh;
     }
 
-    /* 2. Фотографії: забираємо координати, даємо автоматичні відступи */
-    .photo, img[class*="photo"], .image-item {
-        position: static !important; /* Найважливіше: це повністю ігнорує top/left */
-        margin: 15px 0 !important;
+    .container {
+        padding-bottom: 100px;
+    }
+
+    /* 2. ФОТО: Перетворюємо їх на акуратну вертикальну стрічку */
+    .album-photo {
+        /* JS керує видимістю через fadeIn(), тому position: relative 
+           дозволить їм стати один під одним ТІЛЬКИ після появи */
+        position: relative !important;
+        display: none; /* Залишаємо прихованими для JS */
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin: 20px auto !important;
         width: 90% !important;
-        max-width: 350px !important;
+        max-width: 320px;
+        transform: none !important; /* Прибираємо нахили */
+        z-index: 10;
+    }
+
+    /* 3. ДЕКОРАЦІЇ: Гірлянда (banner) та Торт (cake) */
+    .bannar {
+        position: relative !important;
+        transform: none !important; /* Скасовуємо анімацію вильоту зверху */
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
+
+    .cake {
+        position: relative !important;
+        left: auto !important;
+        margin: 40px auto !important;
+        transform: scale(0.8) !important; /* Трохи зменшуємо для екрана */
+    }
+
+    /* Портретне фото всередині торта */
+    .profile-img {
+        right: 0 !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        bottom: -160px !important; /* Ставимо під торт, а не збоку */
+    }
+
+    /* 4. ТЕКСТ ПРИВІТАННЯ: Робимо його читабельним */
+    .message {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
         transform: none !important;
-        /* Не додаємо display: block, щоб JS сам їх показав, коли треба */
+        width: 100% !important;
+        padding: 0 15px;
+        margin-top: 30px;
     }
 
-    /* 3. Декорації: не даємо їм розсувати ленту */
-    .banner, .balloons, .cake, .decor {
-        position: fixed !important; /* Вони "зависнуть" у повітрі і не будуть штовхати фото */
-        z-index: 100;
-        pointer-events: none; /* Щоб можна було гортати сайт крізь них */
+    .message p {
+        font-size: 28px !important; /* Зменшуємо гігантський шрифт 60px */
+        line-height: 1.4;
     }
 
-    /* Зменшуємо їх, щоб не заважали */
-    .banner { top: 0; width: 100%; height: auto; }
-    .cake { bottom: 10px; right: 10px; width: 80px; }
-    
-    /* 4. Приховуємо сині кнопки-підказки, бо вони "ламають" ленту */
-    .blue-btn, [class*="btn"]:not(#lightButton), .hint-text {
-        display: none !important;
+    /* 5. КНОПКИ: Робимо їх зручними для пальця */
+    .navbar-fixed-bottom {
+        background: rgba(0,0,0,0.5); /* Додаємо фон для панелі кнопок */
+        padding: 10px 0;
+    }
+
+    .btn-primary {
+        width: 80%;
+        margin: 5px auto !important;
+        display: none; /* JS сам їх покаже по черзі */
+    }
+
+    /* 6. КУЛЬКИ: На мобілці вони заважають, краще їх обмежити */
+    .balloons {
+        opacity: 0.4 !important;
+        width: 60px !important;
+        height: 110px !important;
+        background-size: contain !important;
     }
 }
