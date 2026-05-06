@@ -4,10 +4,8 @@
 <!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
 <!--[if gt IE 8]> <html> <![endif]-->
 <!--[if !IE]><!--><html lang="en"><!-- <![endif]-->
-if (window.innerWidth <= 768) {
-    window.location.href = "mobile.html";
-}
 <head>
+	
 	<title>Happy Birthday</title>
 	<meta charset="UTF-8" />
 	<meta name="description" content="Happy Birthday Ana">
@@ -33,7 +31,9 @@ if (window.innerWidth <= 768) {
 	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet/less" href="cake.less"> 
 	<style type="text/css" id="less:birthday-cake">
-    
+    if (window.innerWidth <= 768) {
+    window.location.href = "mobile.html";
+}
     /* ============================================== POSITION
 */
 .cake {
