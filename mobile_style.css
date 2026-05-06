@@ -1,0 +1,53 @@
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Signika', sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+}
+
+.top-section { height: 200px; position: relative; text-align: center; }
+.bulbs-row { margin-top: 10px; }
+.bulb { width: 35px; height: 35px; background-size: contain; margin: auto; }
+
+.bannar { 
+    width: 90%; 
+    position: absolute; 
+    top: 70px; 
+    left: 5%; 
+    display: none; 
+}
+
+.cake-section { 
+    height: 250px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.cake { transform: scale(0.6); display: none; }
+
+.message { 
+    text-align: center; 
+    padding: 20px; 
+    display: none; 
+}
+.message p { font-size: 24px; color: #C4515C; }
+
+.album-section { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.album-photo { 
+    width: 85%; 
+    margin: 15px 0; 
+    border: 5px solid white; 
+    display: none; 
+}
+
+.navbar-fixed-bottom { 
+    background: rgba(0,0,0,0.8); 
+    padding: 10px; 
+    text-align: center; 
+}
+.btn-primary { width: 90%; margin: 5px 0; }
