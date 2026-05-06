@@ -1453,15 +1453,20 @@ audio {
     }
 
     /* Скидаємо координати стрілочки, щоб вона була ПІД фотографіями */
-    .can-zoom {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        right: auto !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin: 10px 0 80px 0 !important; /* 80px знизу, щоб не ховалась за кнопки */
-        width: 150px !important;
-        z-index: 20 !important;
+   .can-zoom {
+        display: none !important;
+    }
+
+    /* =========================================
+       ВІДЦЕНТРОВУЄМО КУЛЬКИ, ЩО ЛЕТЯТЬ ВГОРУ
+       ========================================= */
+    .balloon-border {
+        position: fixed !important; /* Залишаємо фіксованими, щоб скрипт міг їх піднімати */
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important; /* Ідеальне центрування по горизонталі */
+        width: 100% !important; /* Розтягуємо на всю ширину екрана телефона */
+        object-fit: contain !important; /* Щоб кульки не сплющувалися і зберігали пропорції */
+        z-index: 9999 !important;
     }
 }
