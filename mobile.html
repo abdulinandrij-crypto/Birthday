@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Днем Народження!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <audio class="song" loop><source src="assets/audio/hbd.mp3"></audio>
+
+    <div class="content-wrapper">
+        <!-- 1. Лампочки -->
+        <div class="bulbs-container">
+            <div class="bulb" id="b_yellow"></div>
+            <div class="bulb" id="b_red"></div>
+            <div class="bulb" id="b_blue"></div>
+            <div class="bulb" id="b_green"></div>
+            <div class="bulb" id="b_pink"></div>
+            <div class="bulb" id="b_orange"></div>
+        </div>
+
+        <!-- 2. Банер -->
+        <img src="assets/images/banner.png" class="bannar" id="mobile_banner">
+
+        <!-- 3. Торт -->
+        <div class="cake-container" id="mobile_cake">
+            <div class="cake">
+                <div class="velas"><div class="fuego"></div></div>
+                <div class="cobertura"></div>
+                <div class="bizcocho"></div>
+                <img src="assets/images/person.jpg" class="profile-img">
+            </div>
+        </div>
+
+        <!-- 4. Текст -->
+        <div class="message-container" id="mobile_message">
+            <p>Сьогодні особливий день, бо він твій.</p>
+            <p>Давай зробимо його найкращим!</p>
+            <p>З днем народження, крихітко! ❤️</p>
+        </div>
+
+        <!-- 5. Фотографії -->
+        <div class="photos-container" id="mobile_photos">
+            <img src="assets/images/photo1.jpg" class="album-photo">
+            <img src="assets/images/photo2.jpg" class="album-photo">
+            <img src="assets/images/photo3.jpg" class="album-photo">
+            <img src="assets/images/photo4.jpg" class="album-photo">
+        </div>
+    </div>
+
+    <!-- Кнопки знизу -->
+    <div class="bottom-nav">
+        <button class="btn btn-primary" id="btn_light">Ввімкнути світло</button>
+        <button class="btn btn-primary" id="btn_music" style="display: none;">Включити музику</button>
+        <button class="btn btn-primary" id="btn_decor" style="display: none;">Дістати декорацій</button>
+        <button class="btn btn-primary" id="btn_cake" style="display: none;">Торт? Точно!</button>
+        <button class="btn btn-primary" id="btn_msg" style="display: none;">Привітання</button>
+        <button class="btn btn-primary" id="btn_photos" style="display: none;">А тепер фото</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/mobile.js"></script>
+</body>
+</html>
