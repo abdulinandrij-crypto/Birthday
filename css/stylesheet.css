@@ -1391,58 +1391,76 @@ audio {
     	}
     }*/
 @media screen and (max-width: 768px) {
-    /* 1. Налаштовуємо головний контейнер як колонку */
-    body {
-        display: flex !important;
-        flex-direction: column !important;
+    /* 1. Налаштування сторінки */
+    body, html {
         overflow-y: auto !important;
         height: auto !important;
+        display: block !important; /* Повертаємо стандартний тип відображення */
     }
 
-    /* 2. ЛАМПОЧКИ ТА БАНЕР (Мають бути зверху) */
+    /* 2. РОБОЧА ЗОНА (Лампочки, Банер, Торт) */
+    /* Залишаємо їх як на ПК, але масштабуємо під ширину екрана */
     .container {
-        display: flex !important;
-        flex-direction: column !important;
-        order: 1 !important; /* Перший блок */
+        position: relative !important;
+        display: block !important;
         width: 100% !important;
-        position: relative !important;
-        padding-top: 20px;
+        height: 600px !important; /* Фіксуємо висоту "головного екрана" */
+        margin: 0 auto !important;
     }
 
-    /* 3. ТОРТ (Всередині контейнера) */
-    .cake-cover {
-        order: 2 !important;
-        margin-top: 20px !important;
+    /* Лампочки */
+    .bulb-holder {
+        padding: 5px !important;
+    }
+    .bulb {
+        width: 35px !important;
+        height: 35px !important;
+        background-size: contain !important;
     }
 
-    /* 4. ФОТОГРАФІЇ (Тепер вони будуть внизу) */
+    /* Банер */
+    .bannar {
+        width: 90% !important;
+        top: 80px !important;
+        left: 5% !important;
+        position: absolute !important;
+    }
+
+    /* Торт */
+    .cake {
+        transform: scale(0.6) !important;
+        top: 200px !important;
+        left: 50% !important;
+        margin-left: -150px !important;
+    }
+
+    /* 3. АЛЬБОМ З ФОТО (Тепер він точно буде ВНИЗУ) */
     .album-photo {
-        order: 3 !important; /* Третій блок (після всього контенту) */
         position: relative !important;
-        display: none; /* Чекаємо команди від effect.js */
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        margin: 30px auto !important;
+        display: none; /* Керується через effect.js */
+        top: 450px !important; /* Початковий відступ від верху */
+        margin: 20px auto 40px auto !important;
         width: 85% !important;
         max-width: 320px;
         transform: none !important;
-        z-index: 10;
         border: 5px solid white;
+        z-index: 10;
     }
 
-    /* 5. КНОПКИ ТА ПАНЕЛЬ */
+    /* 4. ПАНЕЛЬ КНОПОК */
     .navbar-fixed-bottom {
-        order: 4 !important;
-        position: fixed !important;
-        bottom: 0 !important;
-        z-index: 9999;
+        background: rgba(0, 0, 0, 0.8) !important;
+        padding: 10px 0 !important;
     }
 
-    /* Декорації залишаємо невагомими */
-    .bannar {
-        position: absolute !important;
-        top: 60px !important;
-        z-index: 50;
+    .btn-primary {
+        width: 85% !important;
+        margin: 5px auto !important;
+        font-size: 16px !important;
+    }
+
+    /* Приховуємо підказки, щоб не перекривали фото */
+    .can-zoom {
+        display: none !important;
     }
 }
