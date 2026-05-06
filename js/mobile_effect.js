@@ -1,30 +1,45 @@
-$(document).ready(function(){
-    $('#turn_on').click(function(){
-        $('body').css('background-color', '#3D3231');
-        $('.bulb').addClass('bulb-glow-yellow'); // Додай класи для всіх кольорів
-        $(this).fadeOut().promise().done(function(){
-            $('#play').fadeIn();
-        });
+$(document).ready(function() {
+    // 1. Світло
+    $('#btn_light').click(function() {
+        $('body').addClass('bg-peach');
+        $('#b_yellow').addClass('glow-yellow');
+        $('#b_red').addClass('glow-red');
+        $('#b_blue').addClass('glow-blue');
+        $('#b_green').addClass('glow-green');
+        $('#b_pink').addClass('glow-pink');
+        $('#b_orange').addClass('glow-orange');
+        
+        $(this).fadeOut(300, function() { $('#btn_music').fadeIn(500); });
     });
 
-    $('#play').click(function(){
+    // 2. Музика
+    $('#btn_music').click(function() {
         $('.song')[0].play();
-        $(this).fadeOut().promise().done(function(){
-            $('#show_all').fadeIn();
-        });
+        $(this).fadeOut(300, function() { $('#btn_decor').fadeIn(500); });
     });
 
-    $('#show_all').click(function(){
-        $(this).fadeOut();
-        // Послідовна поява
-        $('.bannar').fadeIn(1000).promise().done(function(){
-            $('.cake').fadeIn(1000).promise().done(function(){
-                $('.message').fadeIn(1000).promise().done(function(){
-                    $('.album-photo').each(function(i) {
-                        $(this).delay(1000 * i).fadeIn(1000);
-                    });
-                });
-            });
-        });
+    // 3. Банер
+    $('#btn_decor').click(function() {
+        $('#mobile_banner').fadeIn(1000);
+        $(this).fadeOut(300, function() { $('#btn_cake').fadeIn(500); });
+    });
+
+    // 4. Торт
+    $('#btn_cake').click(function() {
+        $('#mobile_cake').fadeIn(1000);
+        $(this).fadeOut(300, function() { $('#btn_msg').fadeIn(500); });
+    });
+
+    // 5. Текст + запалювання свічки
+    $('#btn_msg').click(function() {
+        $('.fuego').fadeIn(500); // Запалили свічку
+        $('#mobile_message').fadeIn(1000);
+        $(this).fadeOut(300, function() { $('#btn_photos').fadeIn(500); });
+    });
+
+    // 6. Лента фотографій
+    $('#btn_photos').click(function() {
+        $('#mobile_photos').css('display', 'flex').hide().fadeIn(1500);
+        $(this).fadeOut(300);
     });
 });
