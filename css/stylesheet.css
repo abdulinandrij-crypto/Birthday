@@ -1459,9 +1459,42 @@ audio {
         display: none !important;
     }
 
-    /* =========================================
-       ВІДЦЕНТРОВУЄМО КУЛЬКИ, ЩО ЛЕТЯТЬ ВГОРУ
-       ========================================= */
+.balloons {
+        display: block !important;
+        position: fixed !important; 
+        width: 45px !important;
+        height: 85px !important;
+        background-size: contain !important;
+        z-index: 9999 !important;
+    }
+
+    /* Налаштовуємо літери всередині кульок */
+    .balloons h2 {
+        font-size: 24px !important;
+        margin-top: 15px !important;
+        text-shadow: 1px 1px 2px #FFF !important;
+    }
+
+    /* Ховаємо сьому зайву кульку (без літери), щоб вона не псувала слово на телефоні */
+    #b7 {
+        display: none !important;
+    }
+
+    /* 2. Коли вони зібралися в слово "ЗДРАНЯ" (змінилися ID) */
+    #b11, #b22, #b33, #b44, #b55, #b66 {
+        position: absolute !important; /* Тепер вони будуть скролитися разом зі сторінкою */
+        top: 220px !important; /* Розміщуємо їх якраз між гірляндою та тортиком */
+        margin: 0 !important;
+    }
+
+    /* Розставляємо літери ідеально рівномірно у відсотках по ширині екрана */
+    #b11 { left: 4% !important; transform: none !important; }
+    #b22 { left: 20% !important; transform: none !important; }
+    #b33 { left: 36% !important; transform: none !important; }
+    #b44 { left: 52% !important; transform: none !important; }
+    #b55 { left: 68% !important; transform: none !important; }
+    #b66 { left: 84% !important; transform: none !important; }
+	
     .balloon-border {
         position: fixed !important; /* Залишаємо фіксованими, щоб скрипт міг їх піднімати */
         left: 0 !important;
