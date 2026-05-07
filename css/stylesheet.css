@@ -1405,7 +1405,8 @@ audio {
 
     /* 2. ТОРТ: Відсуваємо від банера вниз і ПРИБИРАЄМО велетенську дірку */
     .cake-cover {
-        margin-top: 80px !important; /* Відсуває торт від банера */
+        margin-top: 150px !important; /* Опустили торт, щоб котику було місце */
+        margin-bottom: 40px !important; /* Робимо ту саму невеличку відстань до альбому знизу */
         position: relative !important;
     }
     
@@ -1413,26 +1414,27 @@ audio {
         position: relative !important;
         left: 50% !important;
         transform: translateX(-50%) scale(0.65) !important;
-        margin: 0 !important; /* Прибрали 180px знизу, щоб не було дірки! */
+        margin: 0 !important;
     }
 
     /* 3. КОТИК (Портрет) */
     .profile-img {
         position: absolute !important;
-        bottom: -150px !important; /* Котик висить рівно під тортом */
+        top: -130px !important; /* Мінус піднімає фотографію над тортом */
+        bottom: auto !important; /* Обов'язково скидаємо старе значення низу */
         left: 50% !important;
         right: auto !important;
         transform: translateX(-50%) !important;
         z-index: 15 !important;
     }
 
-    /* 4. ТЕКСТ ПРИВІТАННЯ: Відсуваємо його від котика */
+    /* 4. ТЕКСТ ПРИВІТАННЯ */
     .message {
         position: relative !important;
         top: auto !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        margin-top: 150px !important; /* Даємо місце котику, щоб текст не наліз на нього */
+        margin-top: 20px !important; /* Невелика відстань після торта */
         width: 95% !important;
     }
     .message p {
